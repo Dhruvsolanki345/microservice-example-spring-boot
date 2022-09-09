@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "5836563c-785d-47e7-bb8a-e2ed5977e1a3",
-		"name": "Microservice-example",
+		"_postman_id": "30c38f08-41c9-457b-87fe-ae4a7b823721",
+		"name": "Microservice-Example-Spring-Boot",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "16605495"
+		"_exporter_id": "21064706"
 	},
 	"item": [
 		{
@@ -21,9 +21,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{local1}}/departments/",
+					"raw": "{{local}}/departments/",
 					"host": [
-						"{{local1}}"
+						"{{local}}"
 					],
 					"path": [
 						"departments",
@@ -40,7 +40,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"firstName\": \"Dhaval\",\n\"lastName\": \"Solanki\",\n\"email\": \"dhaval@gmail.com\",\n\"departmentId\": 1 \n}",
+					"raw": "{\n\"firstName\": \"Dhruv\",\n\"lastName\": \"Solanki\",\n\"email\": \"dhaval@gmail.com\",\n\"departmentId\": 10\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -48,9 +48,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{local2}}/users/",
+					"raw": "{{local}}/users/",
 					"host": [
-						"{{local2}}"
+						"{{local}}"
 					],
 					"path": [
 						"users",
@@ -66,12 +66,30 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{local1}}/departments/1",
+					"raw": "{{local}}/departments/1",
 					"host": [
-						"{{local1}}"
+						"{{local}}"
 					],
 					"path": [
 						"departments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find User with Department By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}/users/1",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"users",
 						"1"
 					]
 				}
@@ -108,6 +126,11 @@
 		{
 			"key": "local2",
 			"value": "http://localhost:9002/api",
+			"type": "string"
+		},
+		{
+			"key": "local",
+			"value": "http://localhost:8080/api",
 			"type": "string"
 		}
 	]

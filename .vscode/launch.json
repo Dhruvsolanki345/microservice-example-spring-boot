@@ -2,6 +2,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch ApiGatewayApplication",
+      "request": "launch",
+      "mainClass": "com.dhruv.apigateway.ApiGatewayApplication",
+      "projectName": "api-gateway"
+    },
+    {
+      "type": "java",
       "name": "Spring Boot-DepartmentServiceApplication<department-service>",
       "request": "launch",
       "cwd": "${workspaceFolder}",
@@ -17,6 +24,16 @@
       "cwd": "${workspaceFolder}",
       "mainClass": "com.dhruv.userservice.UserServiceApplication",
       "projectName": "user-service",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ServiceRegistryApplication<service-registry>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.dhruv.serviceregistry.ServiceRegistryApplication",
+      "projectName": "service-registry",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
     }
