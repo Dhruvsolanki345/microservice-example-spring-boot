@@ -4,7 +4,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
+import com.dhruv.userservice.VO.Department;
 import com.dhruv.userservice.VO.UserNDepartment;
 import com.dhruv.userservice.exception.ResourceNotFoundException;
 import com.dhruv.userservice.model.User;
@@ -20,6 +22,9 @@ public class UserServiceImpl implements UserService {
   @Autowired
   private UserRepository userRepository;
 
+  @Autowired
+  public RestTemplate restTemplate;
+
   @Override
   public User saveUser(User user) {
     log.info("Inside saveUser method of UserService");
@@ -32,12 +37,27 @@ public class UserServiceImpl implements UserService {
     log.info("Inside getUserWithDepartment method in UserService");
 
     UserNDepartment userNDepartment = new UserNDepartment();
-    Optional optional = userRepository.findById(userId); 
+    Optional<User> optional = userRepository.findById(userId);
 
-    if(optional.isEmpty()) throw new ResourceNotFoundException("User", "userId", userId);
-    
-    User user = (User) optional.get();
-    
+    if (optional.isEmpty())
+      throw new ResourceNotFoundException("User", "userId", userId);
+
+    User user = optional.get();
+
+    try {
+      Department department = restTemplate.getForObject(
+          "http://localhost:9001/api/departments/" + user.getDepartmentId(),
+          Department.class);
+
+      userNDepartment.setDepartment(department);
+    } catch (Exception e) {
+      throw new ResourceNotFoundException(
+          String.format("Department not found for user with userId: '%s'", user.getUserId()));
+    }
+
+    userNDepartment.setUser(user);
+
+    return userNDepartment;
   }
 
 }
