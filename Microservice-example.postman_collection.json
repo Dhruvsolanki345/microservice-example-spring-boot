@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "5836563c-785d-47e7-bb8a-e2ed5977e1a3",
+		"name": "Microservice-example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16605495"
+	},
+	"item": [
+		{
+			"name": "Create Department",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"departmentName\": \"IT\",\n    \"departmentAddress\": \"address\",\n    \"departmentCode\": \"IT-4\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local1}}/departments/",
+					"host": [
+						"{{local1}}"
+					],
+					"path": [
+						"departments",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"firstName\": \"Dhaval\",\n\"lastName\": \"Solanki\",\n\"email\": \"dhaval@gmail.com\",\n\"departmentId\": 1 \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local2}}/users/",
+					"host": [
+						"{{local2}}"
+					],
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Department By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local1}}/departments/1",
+					"host": [
+						"{{local1}}"
+					],
+					"path": [
+						"departments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local1",
+			"value": "http://localhost:9001/api",
+			"type": "string"
+		},
+		{
+			"key": "local2",
+			"value": "http://localhost:9002/api",
+			"type": "string"
+		}
+	]
+}
