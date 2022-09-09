@@ -1,4 +1,3 @@
 {
-  "java.configuration.updateBuildConfiguration": "interactive",
-  "java.project.sourcePaths": ["user-service"]
+  "java.configuration.updateBuildConfiguration": "automatic"
 }

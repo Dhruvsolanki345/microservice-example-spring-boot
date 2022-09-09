@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
 
     try {
       Department department = restTemplate.getForObject(
-          "http://localhost:9001/api/departments/" + user.getDepartmentId(),
+          "http://DEPARTMENT-SERVICE/api/departments/" + user.getDepartmentId(),
           Department.class);
 
       userNDepartment.setDepartment(department);
