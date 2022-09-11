@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
 @RestController
 @RequestMapping("/api/users")
 @Slf4j
@@ -26,15 +25,15 @@ public class UserController {
 
   @PostMapping
   public User saveUser(@RequestBody User user) {
-      log.info("Inside saveUser method of UserController");
+    log.info("Inside saveUser method of UserController");
 
-      return userService.saveUser(user);
+    return userService.saveUser(user);
   }
-  
+
   @GetMapping("/{id}")
   public UserNDepartment getUserWithDepartment(@PathVariable("id") Long userId) {
     log.info("Inside getUserWithDepartment method in UserController");
 
     return userService.getUserWithDepartment(userId);
-  } 
+  }
 }
