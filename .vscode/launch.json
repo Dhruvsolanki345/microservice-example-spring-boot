@@ -36,6 +36,16 @@
       "projectName": "service-registry",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-CloudConfigServerApplication<cloud-config-server>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.dhruv.cloudconfigserver.CloudConfigServerApplication",
+      "projectName": "cloud-config-server",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }
